@@ -6,7 +6,6 @@ public class DashMove : PlayerController
 {
     public float dashSpeed;
     public float startDashTime;
-    public TrailRenderer trailRenderer;
 
     private Rigidbody2D rb;
     private float dashTime;
@@ -22,24 +21,27 @@ public class DashMove : PlayerController
     // Update is called once per frame
     void Update()
     {
-            if (direction == 0)
+        if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.LeftArrow) && !grounded)
             {
                 direction = 1;
+                animator.SetTrigger("Dash");
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.RightArrow) && !grounded)
             {
                 direction = 2;
+                animator.SetTrigger("Dash");
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.UpArrow)&& !grounded)
             {
                 direction = 3;
+                animator.SetTrigger("Dash");
             }
         }
         else
         {
-            if(dashTime <= 0)
+            if (dashTime <= 0)
             {
                 direction = 0;
                 dashTime = startDashTime;
@@ -47,15 +49,13 @@ public class DashMove : PlayerController
             }
             else
             {
-
                 dashTime -= Time.deltaTime;
-                animator.SetTrigger("Dash");
             }
-            if(direction == 1)
+            if (direction == 1)
             {
                 rb.velocity = Vector2.left * dashSpeed;
             }
-            else if(direction == 2)
+            else if (direction == 2)
             {
                 rb.velocity = Vector2.right * dashSpeed;
             }
