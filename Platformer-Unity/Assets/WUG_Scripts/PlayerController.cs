@@ -37,6 +37,7 @@ public class PlayerController : PhysicsObject
     protected override void ComputeVelocity ()
     {
         // Mouvement du personnage
+        maxSpeed = 12f;
         Vector2 move = Vector2.zero;
         move.x = Input.GetAxis("Horizontal");
         flip(move.x);
@@ -53,15 +54,14 @@ public class PlayerController : PhysicsObject
         }
 
         // Le sprint
-        if (Input.GetKeyDown(KeyCode.LeftShift) && grounded)
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            maxSpeed = 24f;
+            maxSpeed = 28f;
             animator.SetBool("Sprint", true);
         }
-
+        
         else if (Input.GetKeyUp(KeyCode.LeftShift))
         {
-            maxSpeed = 12f;
             animator.SetBool("Sprint", false);
         }
 
@@ -72,10 +72,6 @@ public class PlayerController : PhysicsObject
             maxSpeed = 50f;
             move.x = 1f;
             animator.SetTrigger("JumpAttack");
-        }
-        else if (Input.GetKeyUp(KeyCode.F) && grounded)
-        {
-            maxSpeed = 12f;
         }
 
         targetVelocity = move * maxSpeed;

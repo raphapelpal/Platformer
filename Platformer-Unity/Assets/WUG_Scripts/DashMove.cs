@@ -38,6 +38,16 @@ public class DashMove : PlayerController
                 direction = 3;
                 animator.SetTrigger("Dash");
             }
+            else if (Input.GetKeyDown(KeyCode.E) && !grounded)
+            {
+                direction = 4;
+                animator.SetTrigger("Dash");
+            }
+            else if (Input.GetKeyDown(KeyCode.A) && !grounded)
+            {
+                direction = 5;
+                animator.SetTrigger("Dash");
+            }
         }
         else
         {
@@ -62,6 +72,14 @@ public class DashMove : PlayerController
             else if (direction == 3)
             {
                 rb.velocity = Vector2.up * dashSpeed;
+            }
+            else if (direction == 4)
+            {
+                rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
+            }
+            else if (direction == 5)
+            {
+                rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
             }
         }
     }
