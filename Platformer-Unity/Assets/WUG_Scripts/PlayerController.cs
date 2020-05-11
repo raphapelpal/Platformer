@@ -66,7 +66,7 @@ public class PlayerController : PhysicsObject
         }
 
         // Attack en saut
-        if (Input.GetKeyDown(KeyCode.F) && !grounded)
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && !grounded)
         {
             velocity.y = -jumpTakeOffSpeed;
             maxSpeed = 50f;
