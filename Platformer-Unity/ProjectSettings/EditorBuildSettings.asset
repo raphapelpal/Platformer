@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/RPP_Imports/StartMenu.unity
+    guid: 8965fa5d12d8f48499e9522d10d479bc
+  - enabled: 1
+    path: Assets/yann_m/test_integration/test_inte.unity
+    guid: 14acae953acbd9943a970b556a311006
   m_configObjects: {}
