@@ -11,7 +11,6 @@ public class Systems : MonoBehaviour
     // Values for the player's health
     public int maxHealth = 2;
     public int currentHealth;
-
     public HealthBar healthBar;
 
     //Position of the SpawnPoint
@@ -27,14 +26,22 @@ public class Systems : MonoBehaviour
 
     //Collectible Counter Systems
     public CollectibleCounter collectibleCounter;
+
+    //Pause Menu
+    public Canvas mainUI;
+    public Canvas pauseMenu;
     
 
 
     void Start()
     {
+        //Setup Health
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-       
+
+        //Setup UI
+        mainUI.enabled = true;
+        pauseMenu.enabled = false;
     }
 
     private void FixedUpdate()
@@ -48,6 +55,13 @@ public class Systems : MonoBehaviour
         {
             respawnAzaès.BackToCheckpoint();
             transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+        }
+
+        //Pause Button
+        if (Input.GetKey(KeyCode.P))
+        {
+            mainUI.enabled = false;
+            pauseMenu.enabled = true;
         }
     }
 
