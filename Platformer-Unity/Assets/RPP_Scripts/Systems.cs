@@ -19,7 +19,9 @@ public class Systems : MonoBehaviour
     public RespawnAzaès respawnAzaès;
 
     //Dash Systems
-    public WaterSystems waterSystems;
+    public DashCollectibles dashCollectibles;
+    public DashBar dashBar;
+    bool hasPickedUpgrade = false;
 
     //Score Systems
     public Score score;
@@ -53,12 +55,13 @@ public class Systems : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            dashCollectibles.PlayerHasDied();
             respawnAzaès.BackToCheckpoint();
             transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
         }
 
         //Pause Button
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.Escape))
         {
             mainUI.enabled = false;
             pauseMenu.enabled = true;
@@ -88,10 +91,16 @@ public class Systems : MonoBehaviour
             reSpawn.ChangeRespawnPosition();
             FullHealth();
             Debug.Log("Healed");
+
+            if (hasPickedUpgrade == true)
+            {
+                collectibleCounter.AddCollectible();
+                dashCollectibles.ReachedCheckpoint();
+            }
         }
         if (boxCollider2D.CompareTag("DashUpgrade"))
         {
-            waterSystems.AddMaxDash();
+            dashBar.AddMaxDash();
         }
         if (boxCollider2D.CompareTag("Pièce"))
         {
@@ -99,9 +108,9 @@ public class Systems : MonoBehaviour
         }
         if (boxCollider2D.CompareTag("PartialUpgrade"))
         {
-            collectibleCounter.AddCollectible();
+            hasPickedUpgrade = true;
+            dashCollectibles.HasBeenPicked();
         }
-
     }
 
     public void TakeDamage(int damage)

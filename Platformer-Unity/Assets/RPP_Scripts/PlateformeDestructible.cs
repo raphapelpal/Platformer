@@ -7,7 +7,8 @@ public class PlateformeDestructible : MonoBehaviour
     BoxCollider2D boxCollider;
     [SerializeField]
     GameObject platform;
-
+    [SerializeField]
+    float timeToDestruction = 1.5f;
     private void FixedUpdate()
     {
         OnTriggerEnter2D(boxCollider);
@@ -24,7 +25,7 @@ public class PlateformeDestructible : MonoBehaviour
 
     IEnumerator SelfDestruction(GameObject platform)
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(timeToDestruction);
         platform.SetActive(false);
     }
 

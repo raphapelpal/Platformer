@@ -7,15 +7,15 @@ public class CollectibleCounter : MonoBehaviour
     public Text counter;
 
     [SerializeField]
-    WaterSystems waterSystems;
+    DashBar dashBar;
 
     private void FixedUpdate()
     {
-        counter.text = "Collectibles: " + collectiblesCollected + "/3";
+        counter.text = "Collectibles: " + collectiblesCollected + "/2";
 
-        if (collectiblesCollected == 3)
+        if (collectiblesCollected == 2)
         {
-            waterSystems.AddMaxDash();
+            dashBar.AddMaxDash();
             collectiblesCollected = 0;
         }
     }
