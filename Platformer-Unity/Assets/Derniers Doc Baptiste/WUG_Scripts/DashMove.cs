@@ -27,27 +27,27 @@ public class DashMove : PlayerController
         {
             if (dashBar.dashLeft > 0)
             {
-                if (Input.GetKeyDown(KeyCode.LeftArrow) && !grounded)
+                if (Input.GetKey(KeyCode.LeftArrow) && !grounded)
                 {
                     direction = 1;
                     animator.SetTrigger("Dash");
                 }
-                else if (Input.GetKeyDown(KeyCode.RightArrow) && !grounded)
+                else if (Input.GetKey(KeyCode.RightArrow) && !grounded)
                 {
                     direction = 2;
                     animator.SetTrigger("Dash");
                 }
-                else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
+                else if (Input.GetKey(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
                 {
                     direction = 3;
                     animator.SetTrigger("Dash Diagonale");
                 }
-                else if (Input.GetKeyDown(KeyCode.E) && !grounded)
+                else if (Input.GetKey(KeyCode.E) && !grounded)
                 {
                     direction = 4;
                     animator.SetTrigger("Dash Diagonale");
                 }
-                else if (Input.GetKeyDown(KeyCode.A) && !grounded)
+                else if (Input.GetKey(KeyCode.A) && !grounded)
                 {
                     direction = 5;
                     animator.SetTrigger("Dash Diagonale");
@@ -67,37 +67,35 @@ public class DashMove : PlayerController
                 dashTime -= Time.deltaTime;
             }
 
-            if (dashBar.dashLeft > 0)
+            if (direction == 1)
             {
-                if (direction == 1)
-                {
-                    rb.velocity = Vector2.left * dashSpeed;
-                }
-                else if (direction == 2)
-                {
-                    rb.velocity = Vector2.right * dashSpeed;
-                }
-                else if (direction == 3)
-                {
-                    rb.velocity = Vector2.up * dashSpeed;
-                }
-                else if (direction == 4)
-                {
-                    rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
-                }
-                else if (direction == 5)
-                {
-                    rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
-                }
-                StartCoroutine(DashDownTime());
+               rb.velocity = Vector2.left * dashSpeed;
             }
+            else if (direction == 2)
+            {
+                rb.velocity = Vector2.right * dashSpeed;
+            }
+            else if (direction == 3)
+            {
+                rb.velocity = Vector2.up * dashSpeed;
+            }
+            else if (direction == 4)
+            {
+                rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
+            }
+            else if (direction == 5)
+            {
+                rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
+            }
+            StartCoroutine(DashDownTime());
+            //dashBar.UsedDash();  
         }
     }
 
     IEnumerator DashDownTime()
     {
         Debug.Log("called coroutine");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         dashBar.UsedDash();
         Debug.Log("coroutine has ended");
     }

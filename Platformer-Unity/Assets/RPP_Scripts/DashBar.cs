@@ -35,14 +35,15 @@ public class DashBar : MonoBehaviour
     {
 
        if (maxDash > 5)
-        {
+       {
             maxDash = 5;
-        }
+       }
        if (Input.GetKeyDown(KeyCode.R))
-        {
+       {
             DashRefil();
             Debug.Log("Refil");
-        }
+       }
+       
     }
 
     //Increases the quantity of dashes allowed to the player
