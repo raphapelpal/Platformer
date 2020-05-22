@@ -75,7 +75,7 @@ public class PlayerController : PhysicsObject
         }
 
         targetVelocity = move * maxSpeed;
-        Debug.Log(targetVelocity);
+        //Debug.Log(targetVelocity);
 
         if (Input.GetKeyDown(KeyCode.G) && Time.time > nextFire)
         {

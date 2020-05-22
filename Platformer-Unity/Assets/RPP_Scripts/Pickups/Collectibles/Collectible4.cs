@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pickups : MonoBehaviour
+public class Collectible4 : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pickupObject;
+    Systems systems;
     [SerializeField]
-    private BoxCollider2D boxCollider;
+    GameObject pickupObject;
+    [SerializeField]
+    BoxCollider2D boxCollider;
+    public DashCollectibles dashCollectibles;
 
     private void FixedUpdate()
     {
@@ -18,11 +21,10 @@ public class Pickups : MonoBehaviour
     void OnTriggerEnter2D(Collider2D boxCollider2D)
     {
         if (boxCollider2D.CompareTag("Player"))
-        { 
-            Debug.Log("Has touched the player");
-
+        {
+            Debug.Log("Has picked a collectible");
+            dashCollectibles.TookCol4();
             pickupObject.SetActive(false);
         }
     }
-
 }

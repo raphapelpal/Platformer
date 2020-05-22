@@ -10,6 +10,7 @@ TagManager:
   - Checkpoint
   - DashUpgrade
   - "Pi\xE8ce"
+  - Collectible
   layers:
   - Default
   - TransparentFX

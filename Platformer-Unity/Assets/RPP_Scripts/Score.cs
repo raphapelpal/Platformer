@@ -7,9 +7,17 @@ public class Score : MonoBehaviour
     public static int scoreValue = 0;
     public Text score;
 
+    [SerializeField] Timer timer;
+
     void FixedUpdate()
     {
-        score.text = "COINS PICKED: " + scoreValue;
+        score.text = "Coins Picked: " + scoreValue;
+
+        if (scoreValue == 10)
+        {
+            timer.AddTime();
+            scoreValue = 0;
+        }
     }
 
     public void AddCoin()

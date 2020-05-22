@@ -11,6 +11,8 @@ public class DashMove : PlayerController
     private float dashTime;
     private int direction;
 
+    public DashBar dashBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,30 +25,33 @@ public class DashMove : PlayerController
     {
         if (direction == 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow) && !grounded)
+            if (dashBar.dashLeft > 0)
             {
-                direction = 1;
-                animator.SetTrigger("Dash");
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow) && !grounded)
-            {
-                direction = 2;
-                animator.SetTrigger("Dash");
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
-            {
-                direction = 3;
-                animator.SetTrigger("Dash Diagonale");
-            }
-            else if (Input.GetKeyDown(KeyCode.E) && !grounded)
-            {
-                direction = 4;
-                animator.SetTrigger("Dash Diagonale");
-            }
-            else if (Input.GetKeyDown(KeyCode.A) && !grounded)
-            {
-                direction = 5;
-                animator.SetTrigger("Dash Diagonale");
+                if (Input.GetKeyDown(KeyCode.LeftArrow) && !grounded)
+                {
+                    direction = 1;
+                    animator.SetTrigger("Dash");
+                }
+                else if (Input.GetKeyDown(KeyCode.RightArrow) && !grounded)
+                {
+                    direction = 2;
+                    animator.SetTrigger("Dash");
+                }
+                else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
+                {
+                    direction = 3;
+                    animator.SetTrigger("Dash Diagonale");
+                }
+                else if (Input.GetKeyDown(KeyCode.E) && !grounded)
+                {
+                    direction = 4;
+                    animator.SetTrigger("Dash Diagonale");
+                }
+                else if (Input.GetKeyDown(KeyCode.A) && !grounded)
+                {
+                    direction = 5;
+                    animator.SetTrigger("Dash Diagonale");
+                }
             }
         }
         else
@@ -61,26 +66,39 @@ public class DashMove : PlayerController
             {
                 dashTime -= Time.deltaTime;
             }
-            if (direction == 1)
+
+            if (dashBar.dashLeft > 0)
             {
-                rb.velocity = Vector2.left * dashSpeed;
-            }
-            else if (direction == 2)
-            {
-                rb.velocity = Vector2.right * dashSpeed;
-            }
-            else if (direction == 3)
-            {
-                rb.velocity = Vector2.up * dashSpeed;
-            }
-            else if (direction == 4)
-            {
-                rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
-            }
-            else if (direction == 5)
-            {
-                rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
+                if (direction == 1)
+                {
+                    rb.velocity = Vector2.left * dashSpeed;
+                }
+                else if (direction == 2)
+                {
+                    rb.velocity = Vector2.right * dashSpeed;
+                }
+                else if (direction == 3)
+                {
+                    rb.velocity = Vector2.up * dashSpeed;
+                }
+                else if (direction == 4)
+                {
+                    rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
+                }
+                else if (direction == 5)
+                {
+                    rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
+                }
+                StartCoroutine(DashDownTime());
             }
         }
+    }
+
+    IEnumerator DashDownTime()
+    {
+        Debug.Log("called coroutine");
+        yield return new WaitForSeconds(0.5f);
+        dashBar.UsedDash();
+        Debug.Log("coroutine has ended");
     }
 }

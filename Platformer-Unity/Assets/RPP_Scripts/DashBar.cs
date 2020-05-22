@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 
 public class DashBar : MonoBehaviour
 {
     int maxDash = 0;
-    int dashLeft;
+    public int dashLeft;
 
     public DashMove dashMove;
 
@@ -21,14 +22,26 @@ public class DashBar : MonoBehaviour
     [SerializeField]
     Image dash5;
 
+    private void Start()
+    {
+        dash1.enabled = false;
+        dash2.enabled = false;
+        dash3.enabled = false;
+        dash4.enabled = false;
+        dash5.enabled = false;
+    }
+
     private void Update()
     {
-       TotalDashes();
-       DashMarkerFill();
 
-       if (dashLeft == 0)
+       if (maxDash > 5)
         {
-            dashMove.enabled = false;
+            maxDash = 5;
+        }
+       if (Input.GetKeyDown(KeyCode.R))
+        {
+            DashRefil();
+            Debug.Log("Refil");
         }
     }
 
@@ -36,12 +49,24 @@ public class DashBar : MonoBehaviour
     public void AddMaxDash()
     {
         maxDash++;
+        dashLeft = maxDash;
+        TotalDashes();
+        DashMarkerFill();
     }
 
     //Refils the dashes
     public void DashRefil()
     {
         dashLeft = maxDash;
+        DashMarkerFill();
+    }
+
+    //Decreases the dashes left
+    public void UsedDash()
+    {
+        Debug.Log("UsedDash has been called");
+        dashLeft --;
+        DashMarkerFill();
     }
 
     //Defines how many dashes the player is allowed
