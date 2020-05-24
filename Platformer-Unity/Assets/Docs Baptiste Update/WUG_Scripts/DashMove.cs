@@ -11,6 +11,8 @@ public class DashMove : PlayerController
     private float dashTime;
     private int direction;
 
+    public DashBar dashBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,37 +52,50 @@ public class DashMove : PlayerController
             }
         }
         else
-        {
+        {    
             if (dashTime <= 0)
             {
                 direction = 0;
                 dashTime = startDashTime;
-                rb.velocity = Vector2.zero;
+                 rb.velocity = Vector2.zero;
             }
             else
             {
                 dashTime -= Time.deltaTime;
             }
-            if (direction == 1)
+
+            if (dashBar.dashLeft > 0)
             {
-                rb.velocity = Vector2.left * dashSpeed;
-            }
-            else if (direction == 2)
-            {
-                rb.velocity = Vector2.right * dashSpeed;
-            }
-            else if (direction == 3)
-            {
-                rb.velocity = Vector2.up * dashSpeed;
-            }
-            else if (direction == 4)
-            {
-                rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
-            }
-            else if (direction == 5)
-            {
-                rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
+                if (direction == 1)
+                {
+                    rb.velocity = Vector2.left * dashSpeed;
+                }
+                else if (direction == 2)
+                {
+                    rb.velocity = Vector2.right * dashSpeed;
+                }
+                else if (direction == 3)
+                {
+                    rb.velocity = Vector2.up * dashSpeed;
+                }
+                else if (direction == 4)
+                {
+                    rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
+                }
+                else if (direction == 5)
+                {
+                    rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
+                }
+                StartCoroutine(TestCoroutine());
             }
         }
+    }
+
+    IEnumerator TestCoroutine()
+    {
+        Debug.Log("the coroutine has been called");
+        yield return new WaitForSeconds(1f);
+        dashBar.UsedDash();
+        Debug.Log("the coroutine has ended");
     }
 }

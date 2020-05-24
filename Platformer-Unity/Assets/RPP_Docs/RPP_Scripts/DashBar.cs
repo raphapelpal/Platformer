@@ -65,7 +65,6 @@ public class DashBar : MonoBehaviour
     //Decreases the dashes left
     public void UsedDash()
     {
-        Debug.Log("UsedDash has been called");
         dashLeft --;
         DashMarkerFill();
     }

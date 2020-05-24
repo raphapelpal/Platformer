@@ -73,7 +73,7 @@ public class PlayerController : PhysicsObject
         }
 
         targetVelocity = move * maxSpeed;
-        Debug.Log(targetVelocity);
+        //Debug.Log(targetVelocity);
 
         // Test Death
         if (Input.GetKeyDown(KeyCode.K))
