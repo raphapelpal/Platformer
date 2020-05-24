@@ -5,8 +5,6 @@ using UnityEngine;
 public class Collectible2 : MonoBehaviour
 {
     [SerializeField]
-    Systems systems;
-    [SerializeField]
     GameObject pickupObject;
     [SerializeField]
     BoxCollider2D boxCollider;
