@@ -36,7 +36,7 @@ public class DashMove : PlayerController
             else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
             {
                 direction = 3;
-                animator.SetTrigger("Dash Diagonale");
+                animator.SetTrigger("Dash Up");
             }
             else if (Input.GetKeyDown(KeyCode.E) && !grounded)
             {
