@@ -13,6 +13,8 @@ public class DashMove : PlayerController
 
     public DashBar dashBar;
 
+    private bool canDash = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,26 +31,31 @@ public class DashMove : PlayerController
             {
                 direction = 1;
                 animator.SetTrigger("Dash");
+                canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) && !grounded)
             {
                 direction = 2;
                 animator.SetTrigger("Dash");
+                canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
             {
                 direction = 3;
                 animator.SetTrigger("Dash Up");
+                canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.E) && !grounded)
             {
                 direction = 4;
                 animator.SetTrigger("Dash Diagonale");
+                canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.A) && !grounded)
             {
                 direction = 5;
                 animator.SetTrigger("Dash Diagonale");
+                canDash = true;
             }
         }
         else
@@ -63,9 +70,10 @@ public class DashMove : PlayerController
             {
                 dashTime -= Time.deltaTime;
             }
-
-            if (dashBar.dashLeft > 0)
+            if (dashBar.dashLeft > 0 && canDash == true)
             {
+                canDash = false;
+
                 if (direction == 1)
                 {
                     rb.velocity = Vector2.left * dashSpeed;
@@ -86,16 +94,8 @@ public class DashMove : PlayerController
                 {
                     rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
                 }
-                StartCoroutine(TestCoroutine());
+                dashBar.UsedDash();
             }
         }
-    }
-
-    IEnumerator TestCoroutine()
-    {
-        Debug.Log("the coroutine has been called");
-        yield return new WaitForSeconds(1f);
-        dashBar.UsedDash();
-        Debug.Log("the coroutine has ended");
     }
 }
