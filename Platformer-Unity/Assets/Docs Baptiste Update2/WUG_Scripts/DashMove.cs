@@ -6,13 +6,14 @@ public class DashMove : PlayerController
 {
     public float dashSpeed;
     public float startDashTime;
+    public float diagonalDashSpeed;
+    public float verticalDashSpeed;
 
     private Rigidbody2D rb;
     private float dashTime;
     private int direction;
 
     public DashBar dashBar;
-
     private bool canDash = false;
 
     // Start is called before the first frame update
@@ -59,21 +60,22 @@ public class DashMove : PlayerController
             }
         }
         else
-        {    
+        {
             if (dashTime <= 0)
             {
                 direction = 0;
                 dashTime = startDashTime;
-                 rb.velocity = Vector2.zero;
+                rb.velocity = Vector2.zero;
             }
             else
             {
                 dashTime -= Time.deltaTime;
             }
-            if (dashBar.dashLeft > 0 && canDash == true)
-            {
-                canDash = false;
 
+            if(dashBar.dashLeft > 0 && canDash == true)
+            {
+                
+                Debug.Log("has dashed");
                 if (direction == 1)
                 {
                     rb.velocity = Vector2.left * dashSpeed;
@@ -84,18 +86,19 @@ public class DashMove : PlayerController
                 }
                 else if (direction == 3)
                 {
-                    rb.velocity = Vector2.up * dashSpeed;
+                    rb.velocity = Vector2.up * verticalDashSpeed;
                 }
                 else if (direction == 4)
                 {
-                    rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
+                    rb.velocity = new Vector2(0.5f, 0.5f) * diagonalDashSpeed;
                 }
                 else if (direction == 5)
                 {
-                    rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
+                    rb.velocity = new Vector2(-0.5f, 0.5f) * diagonalDashSpeed;
                 }
                 dashBar.UsedDash();
-            }
+                canDash = false;
+            }  
         }
     }
 }

@@ -6,8 +6,15 @@ public class CollectibleCounter : MonoBehaviour
     public static int collectiblesCollected = 0;
     public Text counter;
 
-    [SerializeField]
-    DashBar dashBar;
+    [SerializeField] DashBar dashBar;
+
+    //Fist feedback
+    public Image im;
+
+    private void Start()
+    {
+        im.enabled = false;
+    }
 
     private void FixedUpdate()
     {

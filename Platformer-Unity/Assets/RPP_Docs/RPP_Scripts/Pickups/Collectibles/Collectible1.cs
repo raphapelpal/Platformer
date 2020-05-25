@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Collectible1 : MonoBehaviour
 {
-    [SerializeField]
-    GameObject pickupObject;
-    [SerializeField]
-    BoxCollider2D boxCollider;
+    [SerializeField] CollectibleCounter counter;
+    [SerializeField] GameObject pickupObject;
+    [SerializeField] BoxCollider2D boxCollider;
     public DashCollectibles dashCollectibles;
-
+    
     private void FixedUpdate()
     {
         OnTriggerEnter2D(boxCollider);
@@ -21,6 +20,7 @@ public class Collectible1 : MonoBehaviour
         {
             Debug.Log("Has picked a collectible");
             dashCollectibles.TookCol1();
+            counter.im.enabled = true;
             pickupObject.SetActive(false);
         }
     }

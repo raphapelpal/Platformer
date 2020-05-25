@@ -17,21 +17,25 @@ public class DashCollectibles : MonoBehaviour
         {
             tookCol1 = false;
             collectible1.SetActive(true);
+            collectibleCounter.im.enabled = false;
         }
         if (tookCol2 == true)
         {
             tookCol2 = false;
             collectible2.SetActive(true);
+            collectibleCounter.im.enabled = false;
         }
         if (tookCol3 == true)
         {
             tookCol3 = false;
             collectible3.SetActive(true);
+            collectibleCounter.im.enabled = false;
         }
         if (tookCol4 == true)
         {
             tookCol4 = false;
             collectible4.SetActive(true);
+            collectibleCounter.im.enabled = false;
         }
     }
 

@@ -76,10 +76,10 @@ public class PlayerController : PhysicsObject
         //Debug.Log(targetVelocity);
 
         // Test Death
-        if (Input.GetKeyDown(KeyCode.K))
+        /*if (Input.GetKeyDown(KeyCode.K))
         {
             animator.SetTrigger("Dead");
-        }
+        }*/
 
         // Les animations
         animator.SetBool("grounded", grounded);

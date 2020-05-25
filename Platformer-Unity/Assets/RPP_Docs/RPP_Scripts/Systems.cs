@@ -81,6 +81,7 @@ public class Systems : MonoBehaviour
             FullHealth();
             dashBar.DashRefil();
             dashCollectibles.ReachedCheckpoint();
+            collectibleCounter.im.enabled = false;
         }
     }
     public void TakeDamage(int damage)
