@@ -5,6 +5,8 @@ using UnityEngine;
 public class DashMove : PlayerController
 {
     public float dashSpeed;
+    public float upDashSpeed;
+    public float diagonalDashSpeed;
     public float startDashTime;
 
     private Rigidbody2D rb;
@@ -71,15 +73,15 @@ public class DashMove : PlayerController
             }
             else if (direction == 3)
             {
-                rb.velocity = Vector2.up * dashSpeed;
+                rb.velocity = Vector2.up * upDashSpeed;
             }
             else if (direction == 4)
             {
-                rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
+                rb.velocity = new Vector2(0.5f, 0.5f) * diagonalDashSpeed;
             }
             else if (direction == 5)
             {
-                rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
+                rb.velocity = new Vector2(-0.5f, 0.5f) * diagonalDashSpeed;
             }
         }
     }
