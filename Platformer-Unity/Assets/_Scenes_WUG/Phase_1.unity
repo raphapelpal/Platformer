@@ -11469,7 +11469,7 @@ PrefabInstance:
     - target: {fileID: 4313444148285185613, guid: 0ac8be3fe3cf0bc4a8eb87211d13771a,
         type: 3}
       propertyPath: cameraDistance
-      value: 50
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 4313444148285185615, guid: 0ac8be3fe3cf0bc4a8eb87211d13771a,
         type: 3}
@@ -22954,6 +22954,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 333194599, guid: 1db1e90301b457f44a6effbff75c7af0, type: 3}
+      propertyPath: m_Offset.y
+      value: -1.358717
+      objectReference: {fileID: 0}
+    - target: {fileID: 333194599, guid: 1db1e90301b457f44a6effbff75c7af0, type: 3}
+      propertyPath: m_Size.y
+      value: 0.42231095
+      objectReference: {fileID: 0}
+    - target: {fileID: 333194599, guid: 1db1e90301b457f44a6effbff75c7af0, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.2771268
+      objectReference: {fileID: 0}
+    - target: {fileID: 333194599, guid: 1db1e90301b457f44a6effbff75c7af0, type: 3}
+      propertyPath: m_Size.x
+      value: 0.9475348
+      objectReference: {fileID: 0}
     - target: {fileID: 2673478940381458802, guid: 1db1e90301b457f44a6effbff75c7af0,
         type: 3}
       propertyPath: m_Name
