@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 5616455573932581669}
   - component: {fileID: 3833911817482851984}
   m_Layer: 0
-  m_Name: "Aza\xE8s"
+  m_Name: "Aza\xE8sFinale"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
   minGroundNormalY: 0.65
   gravityModifier: 4
   maxSpeed: 14
-  jumpTakeOffSpeed: 18
+  jumpTakeOffSpeed: 22
 --- !u!114 &1313142428953623367
 MonoBehaviour:
   m_ObjectHideFlags: 0
