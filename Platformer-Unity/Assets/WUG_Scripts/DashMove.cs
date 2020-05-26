@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DashMove : PlayerController
 {
-    public float dashSpeed;
-    public float upDashSpeed;
-    public float diagonalDashSpeed;
-    public float startDashTime;
+    public float dashSpeed = 150f;
+    public float upDashSpeed = 100f;
+    public float diagonalDashSpeed = 200f;
+    public float startDashTime = 0.1f;
 
     private Rigidbody2D rb;
     private float dashTime;

@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerController : PhysicsObject
 {
-    public float maxSpeed = 12;
-    public float jumpTakeOffSpeed = 18;
-    public Collider2D[] attackHitBoxes;
+    public float maxSpeed = 14f;
+    public float jumpTakeOffSpeed = 18f;
 
     private bool facingRight;
     private SpriteRenderer spriteRenderer;
@@ -76,10 +75,10 @@ public class PlayerController : PhysicsObject
         Debug.Log(targetVelocity);
 
         // Test Death
-        if (Input.GetKeyDown(KeyCode.K))
+        /*if (Input.GetKeyDown(KeyCode.K))
         {
             animator.SetTrigger("Dead");
-        }
+        }*/
 
         // Les animations
         animator.SetBool("grounded", grounded);
