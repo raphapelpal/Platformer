@@ -29,6 +29,9 @@ public class Systems : MonoBehaviour
     public Canvas mainUI;
     public Canvas pauseMenu;
 
+    //Manager of the enemies
+    public EnemiesManager enemiesManager;
+
     void Start()
     {
         //Setup Health
@@ -52,6 +55,7 @@ public class Systems : MonoBehaviour
             dashCollectibles.PlayerHasDied();
             respawnAzaès.BackToCheckpoint();
             transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+            enemiesManager.RespawnEnemies();
         }
 
         //Pause Button
