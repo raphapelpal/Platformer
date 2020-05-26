@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerController : PhysicsObject
 {
-    public float maxSpeed = 12;
-    public float jumpTakeOffSpeed = 18;
-    public Collider2D[] attackHitBoxes;
+    public float maxSpeed = 14f;
+    public float jumpTakeOffSpeed = 18f;
 
     private bool facingRight;
     private SpriteRenderer spriteRenderer;
@@ -52,7 +51,7 @@ public class PlayerController : PhysicsObject
         }
 
         // Attack en saut
-        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && !grounded)
+        if (Input.GetKeyDown("f") && !grounded)
         {
             velocity.y = -jumpTakeOffSpeed;
             maxSpeed = 50f;
@@ -73,7 +72,7 @@ public class PlayerController : PhysicsObject
         }
 
         targetVelocity = move * maxSpeed;
-        //Debug.Log(targetVelocity);
+        Debug.Log(targetVelocity);
 
         // Test Death
         /*if (Input.GetKeyDown(KeyCode.K))

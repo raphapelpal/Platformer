@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class DashMove : PlayerController
 {
-    public float dashSpeed;
-    public float startDashTime;
-    public float diagonalDashSpeed;
-    public float verticalDashSpeed;
+    public float dashSpeed = 150f;
+    public float upDashSpeed = 100f;
+    public float diagonalDashSpeed = 200f;
+    public float startDashTime = 0.1f;
 
     private Rigidbody2D rb;
     private float dashTime;
@@ -40,7 +40,7 @@ public class DashMove : PlayerController
                 animator.SetTrigger("Dash");
                 canDash = true;
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
+            else if (Input.GetKeyDown(KeyCode.UpArrow) && !grounded)
             {
                 direction = 3;
                 animator.SetTrigger("Dash Up");
@@ -72,10 +72,8 @@ public class DashMove : PlayerController
                 dashTime -= Time.deltaTime;
             }
 
-            if(dashBar.dashLeft > 0 && canDash == true)
+            if (dashBar.dashLeft > 0 && canDash == true)
             {
-                
-                Debug.Log("has dashed");
                 if (direction == 1)
                 {
                     rb.velocity = Vector2.left * dashSpeed;
@@ -86,7 +84,7 @@ public class DashMove : PlayerController
                 }
                 else if (direction == 3)
                 {
-                    rb.velocity = Vector2.up * verticalDashSpeed;
+                    rb.velocity = Vector2.up * upDashSpeed;
                 }
                 else if (direction == 4)
                 {
@@ -96,9 +94,7 @@ public class DashMove : PlayerController
                 {
                     rb.velocity = new Vector2(-0.5f, 0.5f) * diagonalDashSpeed;
                 }
-                dashBar.UsedDash();
-                canDash = false;
-            }  
+            }
         }
     }
 }

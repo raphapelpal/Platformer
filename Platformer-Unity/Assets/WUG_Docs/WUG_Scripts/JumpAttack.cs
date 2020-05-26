@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpAttack : MonoBehaviour
+public class JumpAttack : PhysicsObject
 {
     private bool attacking = false;
 
@@ -21,7 +21,7 @@ public class JumpAttack : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.S) && !attacking)
+        if (Input.GetKeyDown("f") && !attacking && !grounded)
         {
             attacking = true;
             attackTimer = attacktCd;
