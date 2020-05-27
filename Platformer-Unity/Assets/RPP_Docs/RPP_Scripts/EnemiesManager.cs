@@ -8,6 +8,7 @@ public class EnemiesManager : MonoBehaviour
 
     public void RespawnEnemies()
     {
+        Debug.Log("Respawned Enemies");
         enemy1.SetActive(true);
         enemy2.SetActive(true);
         enemy3.SetActive(true);

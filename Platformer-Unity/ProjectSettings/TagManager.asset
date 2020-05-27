@@ -11,6 +11,7 @@ TagManager:
   - DashUpgrade
   - "Pi\xE8ce"
   - Collectible
+  - CheckpointBonus
   layers:
   - Default
   - TransparentFX

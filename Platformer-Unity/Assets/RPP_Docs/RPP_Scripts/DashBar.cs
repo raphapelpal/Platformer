@@ -66,7 +66,6 @@ public class DashBar : MonoBehaviour
     //Decreases the dashes left
     public void UsedDash()
     {
-        InfiniteDash(canCountDash);
         if (canCountDash == true)
         {
             dashLeft--;
@@ -154,6 +153,6 @@ public class DashBar : MonoBehaviour
 
     public void InfiniteDash(bool tog)
     {
-        
+        canCountDash = tog;
     }
 }

@@ -94,6 +94,7 @@ public class DashMove : PlayerController
                 {
                     rb.velocity = new Vector2(-0.5f, 0.5f) * diagonalDashSpeed;
                 }
+                dashBar.UsedDash();
             }
         }
     }

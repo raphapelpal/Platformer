@@ -99,4 +99,3 @@ public class Systems : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 }
-
