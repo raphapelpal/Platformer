@@ -9,6 +9,7 @@ public class DashBar : MonoBehaviour
     public int dashLeft;
 
     public DashMove dashMove;
+    public bool canCountDash;
 
     //The Images that count how many dashes the player has
     [SerializeField]
@@ -38,11 +39,11 @@ public class DashBar : MonoBehaviour
        {
             maxDash = 5;
        }
-       if (Input.GetKeyDown(KeyCode.R))
+       /*if (Input.GetKeyDown(KeyCode.R))
        {
             DashRefil();
             Debug.Log("Refil");
-       }
+       }*/
        
     }
 
@@ -65,8 +66,12 @@ public class DashBar : MonoBehaviour
     //Decreases the dashes left
     public void UsedDash()
     {
-        dashLeft --;
-        DashMarkerFill();
+        InfiniteDash(canCountDash);
+        if (canCountDash == true)
+        {
+            dashLeft--;
+            DashMarkerFill();
+        }
     }
 
     //Defines how many dashes the player is allowed
@@ -145,5 +150,10 @@ public class DashBar : MonoBehaviour
             dash4.color = Color.white;
             dash5.color = Color.white;
         }
+    }
+
+    public void InfiniteDash(bool tog)
+    {
+        
     }
 }

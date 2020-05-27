@@ -23,21 +23,22 @@ public class Timer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (timer >= 0.0f)
-        {
-            timer -= Time.fixedDeltaTime;
-            countdown.text = timer.ToString("F");
-        }
-        else if (timer < 0.0f)
-        {
-            countdown.text = "0.00";
-            SceneManager.LoadScene("GameOver");
-        }
+            if (timer >= 0.0f)
+            {
+                timer -= Time.fixedDeltaTime;
+                countdown.text = timer.ToString("F");
+            }
+            else if (timer < 0.0f)
+            {
+                countdown.text = "0.00";
+                SceneManager.LoadScene("GameOver");
+            }
 
-        /*if (Input.GetKeyDown(KeyCode.T))
-        {
-            StartCoroutine(ShowBonus());
-        }*/
+            /*if (Input.GetKeyDown(KeyCode.T))
+            {
+                StartCoroutine(ShowBonus());
+            }*/
+        
     }
 
     public void AddTime()
