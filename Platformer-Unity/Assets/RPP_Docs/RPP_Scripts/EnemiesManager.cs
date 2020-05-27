@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
-    [SerializeField] GameObject enemy1, enemy2, enemy3;
+    [SerializeField] EnemyDamage enemy1, enemy2, enemy3;
 
     public void RespawnEnemies()
     {
         Debug.Log("Respawned Enemies");
-        enemy1.SetActive(true);
-        enemy2.SetActive(true);
-        enemy3.SetActive(true);
+        enemy1.EnemyRespawn();
+        enemy2.EnemyRespawn();
+        enemy3.EnemyRespawn();
     }
 }

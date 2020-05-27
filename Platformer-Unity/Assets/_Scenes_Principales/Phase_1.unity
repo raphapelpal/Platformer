@@ -10572,7 +10572,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &148326624
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16495,9 +16495,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45486411de5ee1049837b64092af167f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1: {fileID: 604371461}
-  enemy2: {fileID: 2114148147}
-  enemy3: {fileID: 1169704577}
+  enemy1: {fileID: 604371467}
+  enemy2: {fileID: 2114148149}
+  enemy3: {fileID: 1169704579}
 --- !u!1 &276680181
 GameObject:
   m_ObjectHideFlags: 0
@@ -16623,7 +16623,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 280005128}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -345.55, y: -114.93, z: 47.62}
+  m_LocalPosition: {x: -345.55, y: -114.42, z: 47.62}
   m_LocalScale: {x: 0.23458, y: 0.23458, z: 0.23458}
   m_Children: []
   m_Father: {fileID: 1462781457}
@@ -23732,6 +23732,8 @@ MonoBehaviour:
   maxHealth: 20
   curHealth: 20
   damage: 20
+  enemyRenderer: {fileID: 604371465}
+  enemyBoxCollider2D: {fileID: 604371464}
   dashBar: {fileID: 38574332}
 --- !u!95 &604371468
 Animator:
@@ -29987,7 +29989,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -45293,7 +45295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997154333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -191.95, y: -100.3, z: 47.62}
+  m_LocalPosition: {x: -191.95, y: -100.01, z: 47.62}
   m_LocalScale: {x: 0.23458, y: 0.23458, z: 0.23458}
   m_Children: []
   m_Father: {fileID: 1462781457}
@@ -66494,6 +66496,8 @@ MonoBehaviour:
   maxHealth: 20
   curHealth: 20
   damage: 20
+  enemyRenderer: {fileID: 1169704582}
+  enemyBoxCollider2D: {fileID: 1169704581}
   dashBar: {fileID: 38574332}
 --- !u!50 &1169704580
 Rigidbody2D:
@@ -66728,7 +66732,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -72294,7 +72298,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1308496633}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -347.79, y: -115.92, z: 47.62}
+  m_LocalPosition: {x: -347.79, y: -115.29, z: 47.62}
   m_LocalScale: {x: 0.23458, y: 0.23458, z: 0.23458}
   m_Children: []
   m_Father: {fileID: 1462781457}
@@ -77378,7 +77382,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1371980967}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -373.39, y: -115.44, z: 47.62}
+  m_LocalPosition: {x: -372.59, y: -116.12, z: 47.62}
   m_LocalScale: {x: 0.23458, y: 0.23458, z: 0.23458}
   m_Children: []
   m_Father: {fileID: 1462781457}
@@ -82968,7 +82972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511252193}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -334.69, y: -114.84, z: 47.62}
+  m_LocalPosition: {x: -334.69, y: -114.19, z: 47.62}
   m_LocalScale: {x: 0.23458, y: 0.23458, z: 0.23458}
   m_Children: []
   m_Father: {fileID: 1462781457}
@@ -88262,7 +88266,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627414029}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -332.41, y: -115.56, z: 47.62}
+  m_LocalPosition: {x: -332.41, y: -114.98, z: 47.62}
   m_LocalScale: {x: 0.23458, y: 0.23458, z: 0.23458}
   m_Children: []
   m_Father: {fileID: 1462781457}
@@ -88487,7 +88491,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1631741844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -377.89, y: -115.94, z: 47.62}
+  m_LocalPosition: {x: -378.9, y: -115.94, z: 47.62}
   m_LocalScale: {x: 0.23458, y: 0.23458, z: 0.23458}
   m_Children: []
   m_Father: {fileID: 1462781457}
@@ -111747,6 +111751,8 @@ MonoBehaviour:
   maxHealth: 20
   curHealth: 20
   damage: 20
+  enemyRenderer: {fileID: 2114148152}
+  enemyBoxCollider2D: {fileID: 2114148151}
   dashBar: {fileID: 38574332}
 --- !u!50 &2114148150
 Rigidbody2D:
