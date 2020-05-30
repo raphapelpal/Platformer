@@ -7,11 +7,6 @@ public class WaterDashRefil : MonoBehaviour
     public DashBar dashBar;
     [SerializeField] CompositeCollider2D compositeCollider;
 
-    private void Start()
-    {
-        dashBar = GetComponent<DashBar>();
-    }
-
     private void Update()
     {
         OnTriggerEnter2D(compositeCollider);

@@ -5,24 +5,21 @@ using UnityEngine.UI;
 
 public class DashBar : MonoBehaviour
 {
+    [SerializeField]
+    private Transform player;
+
     int maxDash = 0;
     public int dashLeft;
 
     public DashMove dashMove;
     public bool canCountDash;
 
+    public ParticleSystem upgradeFeedback;
+
     //The Images that count how many dashes the player has
     [SerializeField]
-    Image dash1;
-    [SerializeField]
-    Image dash2;
-    [SerializeField]
-    Image dash3;
-    [SerializeField]
-    Image dash4;
-    [SerializeField]
-    Image dash5;
-
+    SpriteRenderer dash1, dash2, dash3, dash4, dash5;
+   
     private void Start()
     {
         dash1.enabled = false;
@@ -39,12 +36,16 @@ public class DashBar : MonoBehaviour
        {
             maxDash = 5;
        }
-       /*if (Input.GetKeyDown(KeyCode.R))
-       {
-            DashRefil();
-            Debug.Log("Refil");
-       }*/
-       
+        //Follow the player
+        transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+
+
+        /*if (Input.GetKeyDown(KeyCode.R))
+        {
+             DashRefil();
+             Debug.Log("Refil");
+        }*/
+
     }
 
     //Increases the quantity of dashes allowed to the player
@@ -52,6 +53,7 @@ public class DashBar : MonoBehaviour
     {
         maxDash++;
         dashLeft = maxDash;
+        upgradeFeedback.Play();
         TotalDashes();
         DashMarkerFill();
     }

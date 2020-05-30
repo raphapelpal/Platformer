@@ -18,24 +18,28 @@ public class DashCollectibles : MonoBehaviour
             tookCol1 = false;
             collectible1.SetActive(true);
             collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         }
         if (tookCol2 == true)
         {
             tookCol2 = false;
             collectible2.SetActive(true);
             collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         }
         if (tookCol3 == true)
         {
             tookCol3 = false;
             collectible3.SetActive(true);
             collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         }
         if (tookCol4 == true)
         {
             tookCol4 = false;
             collectible4.SetActive(true);
             collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         }
     }
 
@@ -47,21 +51,29 @@ public class DashCollectibles : MonoBehaviour
         {
             collectibleCounter.AddCollectible();
             tookCol1 = false;
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         } 
         if (tookCol2 == true)
         {
             collectibleCounter.AddCollectible();
             tookCol2 = false;
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         } 
         if (tookCol3 == true)
         {
             collectibleCounter.AddCollectible();
             tookCol3 = false;
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         }
         if (tookCol4 == true)
         {
             collectibleCounter.AddCollectible();
             tookCol4 = false;
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         }
     }
 

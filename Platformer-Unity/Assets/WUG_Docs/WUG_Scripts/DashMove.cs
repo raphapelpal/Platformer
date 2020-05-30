@@ -74,6 +74,7 @@ public class DashMove : PlayerController
 
             if (dashBar.dashLeft > 0 && canDash == true)
             {
+                canDash = false;
                 if (direction == 1)
                 {
                     rb.velocity = Vector2.left * dashSpeed;

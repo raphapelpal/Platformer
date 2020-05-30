@@ -8,8 +8,10 @@ public class CollectibleCounter : MonoBehaviour
 
     [SerializeField] DashBar dashBar;
 
-    //Fist feedback
-    public Image im;
+     public Animator im;
+
+    public ParticleSystem collectibleFeedback;
+
 
     private void Start()
     {
@@ -30,5 +32,7 @@ public class CollectibleCounter : MonoBehaviour
     public void AddCollectible()
     {
         collectiblesCollected++;
+        collectibleFeedback.Play();
+
     }
 }
