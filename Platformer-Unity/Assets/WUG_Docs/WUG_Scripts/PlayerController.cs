@@ -43,7 +43,7 @@ public class PlayerController : PhysicsObject
         {
             velocity.y = jumpTakeOffSpeed;
             animator.SetTrigger("Jump");
-            SoundManager.PlaySound("Jump");
+            FindObjectOfType<SoundManagerRPP>().Play("Jump");
         }
         else if (Input.GetButtonUp("Jump"))
         {
@@ -58,7 +58,7 @@ public class PlayerController : PhysicsObject
             maxSpeed = 50f;
             move.x = 0f;
             animator.SetTrigger("JumpAttack");
-            SoundManager.PlaySound("JumpAttack");
+            FindObjectOfType<SoundManagerRPP>().Play("JumpAttack");
         }
 
         // Le sprint
@@ -75,12 +75,6 @@ public class PlayerController : PhysicsObject
 
         targetVelocity = move * maxSpeed;
        // Debug.Log(targetVelocity);
-
-        // Test Death
-        /*if (Input.GetKeyDown(KeyCode.K))
-        {
-            animator.SetTrigger("Dead");
-        }*/
 
         // Les animations
         animator.SetBool("grounded", grounded);

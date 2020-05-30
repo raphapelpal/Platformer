@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : PhysicsObject
 {
     private bool attacking = false;
 
@@ -21,9 +21,9 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyDown("f") && !attacking)
+        if(Input.GetKeyDown("f") && !attacking && grounded)
         {
-            SoundManager.PlaySound("SimpleAttack");
+            FindObjectOfType<SoundManagerRPP>().Play("SimpleAttack");
             attacking = true;
             attackTimer = attacktCd;
             attackTrigger.enabled = true;

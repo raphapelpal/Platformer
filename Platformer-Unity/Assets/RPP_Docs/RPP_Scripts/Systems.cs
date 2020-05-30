@@ -76,6 +76,7 @@ public class Systems : MonoBehaviour
         {
             TakeDamage(1);
             Debug.Log("Hit Enemy");
+            FindObjectOfType<SoundManagerRPP>().Play("AzaèsHit");
         }
         if (boxCollider2D.CompareTag("Trap"))
         {

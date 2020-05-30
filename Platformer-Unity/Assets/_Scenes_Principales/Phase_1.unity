@@ -5080,6 +5080,25 @@ MonoBehaviour:
   dash3: {fileID: 1376158776}
   dash4: {fileID: 541424835}
   dash5: {fileID: 771297230}
+--- !u!1 &44619476 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7560332628819704204, guid: 85716dcff891cd942b07516a184f25a2,
+    type: 3}
+  m_PrefabInstance: {fileID: 3833911816851630187}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &44619484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44619476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76f7d98e48bdb6b408a4f2a7369a2a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cc: {fileID: 0}
 --- !u!1 &44875966
 GameObject:
   m_ObjectHideFlags: 0
@@ -11108,62 +11127,74 @@ MonoBehaviour:
   sounds:
   - audioClip: {fileID: 8300000, guid: 5f66ccd1df8d29c4e82b346140eae514, type: 3}
     name: "Aza\xE8sDie"
-    volume: 0.037
-    pitch: 1
+    volume: 0.05
+    pitch: 1.15
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: 90c2ad927a15b9d4a8443d495110dcf6, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: DashClothHonrizontal
+    volume: 0.2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: 76835fdecb4a14b498d4e455ef64e801, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: DashClothVertical
+    volume: 0.2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: 72bba5be504ef144b824b3d74e2a39b9, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: DashMoveHonrizontal
+    volume: 0.2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: 0155a8d539a46ec4dab0b88b22157875, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: DashMoveVertical
+    volume: 0.2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: 55d296221508f9846a522435e99518b4, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: EnemyDeath
+    volume: 0.15
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: f3b834e881c44dc4382d47d5cb802931, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: Jump
+    volume: 0.2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: bc92f9ca5161aab4d970660b7910dea7, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: JumpAttack
+    volume: 0.2
+    pitch: 1.1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: 44f38100549136046b073791630dcdc9, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: SimpleAttack
+    volume: 0.15
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 7ef47a2162bdbc946b40ff757dcf203e, type: 3}
+    name: "Aza\xE8sHit"
+    volume: 0.2
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 4fc289970ff869144bed24890b6a8c24, type: 3}
+    name: HitImpact
+    volume: 0.3
+    pitch: 1
     loop: 0
     source: {fileID: 0}
   - audioClip: {fileID: 8300000, guid: 7800f7bda4bc68f43a86d88827cd082a, type: 3}
-    name: 
-    volume: 0.5
-    pitch: 0
+    name: Sprint
+    volume: 0.2
+    pitch: 1
     loop: 0
     source: {fileID: 0}
 --- !u!1 &222618506
@@ -22229,7 +22260,7 @@ PrefabInstance:
     - target: {fileID: 6440617110923152460, guid: 5ba6b6d9537618c438e82cedff127b49,
         type: 3}
       propertyPath: cameraDistance
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 6440617110923152462, guid: 5ba6b6d9537618c438e82cedff127b49,
         type: 3}
@@ -33239,7 +33270,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3833911816851630187}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 44619476}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ef26fb69bcd11d4dac637c525240a62, type: 3}
@@ -87244,7 +87275,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3833911816851630187}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 44619476}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 351c61800f97b3b4cbcbef090cffd2d4, type: 3}

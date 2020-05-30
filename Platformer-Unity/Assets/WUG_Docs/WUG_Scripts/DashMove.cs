@@ -32,40 +32,40 @@ public class DashMove : PlayerController
             {
                 direction = 1;
                 animator.SetTrigger("Dash");
-                SoundManager.PlaySound("DashClothHonrizontal");
-                SoundManager.PlaySound("DashMoveHonrizontal");
+                FindObjectOfType<SoundManagerRPP>().Play("DashClothHonrizontal");
+                FindObjectOfType<SoundManagerRPP>().Play("DashMoveHonrizontal");
                 canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) && !grounded)
             {
                 direction = 2;
                 animator.SetTrigger("Dash");
-                SoundManager.PlaySound("DashClothHonrizontal");
-                SoundManager.PlaySound("DashMoveHonrizontal");
+                FindObjectOfType<SoundManagerRPP>().Play("DashClothHonrizontal");
+                FindObjectOfType<SoundManagerRPP>().Play("DashMoveHonrizontal");
                 canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.UpArrow) && !grounded)
             {
                 direction = 3;
                 animator.SetTrigger("Dash Up");
-                SoundManager.PlaySound("DashClothVertical");
-                SoundManager.PlaySound("DashMoveVertical");
+                FindObjectOfType<SoundManagerRPP>().Play("DashClothVertical");
+                FindObjectOfType<SoundManagerRPP>().Play("DashMoveVertical");
                 canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.E) && !grounded)
             {
                 direction = 4;
                 animator.SetTrigger("Dash Diagonale");
-                SoundManager.PlaySound("DashClothVertical");
-                SoundManager.PlaySound("DashMoveVertical");
+                FindObjectOfType<SoundManagerRPP>().Play("DashClothVertical");
+                FindObjectOfType<SoundManagerRPP>().Play("DashMoveVertical");
                 canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.A) && !grounded)
             {
                 direction = 5;
                 animator.SetTrigger("Dash Diagonale");
-                SoundManager.PlaySound("DashClothVertical");
-                SoundManager.PlaySound("DashMoveVertical");
+                FindObjectOfType<SoundManagerRPP>().Play("DashClothVertical");
+                FindObjectOfType<SoundManagerRPP>().Play("DashMoveVertical");
                 canDash = true;
             }
         }

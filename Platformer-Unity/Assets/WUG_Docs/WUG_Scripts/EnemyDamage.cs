@@ -26,7 +26,8 @@ public class EnemyDamage : MonoBehaviour
         {
             EnemyIsDead();
             canRefilDash = false;
-            SoundManager.PlaySound("EnemyDeath");
+            FindObjectOfType<SoundManagerRPP>().Play("HitImpact");
+            FindObjectOfType<SoundManagerRPP>().Play("EnemyDeath");
         }
     }
     public void Damage(int Damage)
