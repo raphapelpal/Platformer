@@ -63,6 +63,7 @@ public class Systems : MonoBehaviour
         {
             mainUI.enabled = false;
             pauseMenu.enabled = true;
+            Time.timeScale = 0f;
         }
     }
 

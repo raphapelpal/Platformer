@@ -18057,6 +18057,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 148326628}
+        m_MethodName: GetBackRunning
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &440091195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -72876,6 +72887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1232578260}
+  - component: {fileID: 1232578261}
   m_Layer: 0
   m_Name: AttackText
   m_TagString: Untagged
@@ -72891,7 +72903,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1232578259}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 45.2, y: 2.9, z: -8.7}
+  m_LocalPosition: {x: 45.14, y: 2.9, z: -8.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1828350013}
@@ -72899,6 +72911,25 @@ Transform:
   m_Father: {fileID: 1931112300}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1232578261
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232578259}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2c8e911ee7ade5c4db8caddd94cd5896, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1241340667
 GameObject:
   m_ObjectHideFlags: 0
@@ -111007,6 +111038,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1764455235}
+  - component: {fileID: 1764455236}
   m_Layer: 0
   m_Name: BasicMovementText
   m_TagString: Untagged
@@ -111035,6 +111067,25 @@ Transform:
   m_Father: {fileID: 1931112300}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &1764455236
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1764455234}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f7c499e497fc19e4fbb96e00da1a00cb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1773621929
 GameObject:
   m_ObjectHideFlags: 0
@@ -117961,6 +118012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2017580752}
+  - component: {fileID: 2017580753}
   m_Layer: 0
   m_Name: SprintText
   m_TagString: Untagged
@@ -117986,6 +118038,25 @@ Transform:
   m_Father: {fileID: 1931112300}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2017580753
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2017580751}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5008431816f9a234fab38b9bea8e17b7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2025192277
 GameObject:
   m_ObjectHideFlags: 0
