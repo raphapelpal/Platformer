@@ -21,15 +21,7 @@ public class LondonBridgeIsFallingDown : MonoBehaviour
     {
         if (collider2D.CompareTag("Player"))
         {
-            StartCoroutine(TheBridgeShallFall(animator));
+            animator.enabled = true;
         }
-    }
-
-    IEnumerator TheBridgeShallFall(Animator anim)
-    {
-        anim.enabled = true;
-        yield return new WaitForSeconds(3.45f);
-        anim.enabled = false;
-        Destroy(anim);
     }
 }

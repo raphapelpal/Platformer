@@ -3,7 +3,7 @@
 public class DashCollectibles : MonoBehaviour
 {
     [SerializeField]
-    GameObject collectible1, collectible2, collectible3, collectible4;
+    GameObject collectible1, collectible2;
 
     [SerializeField]
     CollectibleCounter collectibleCounter;
@@ -27,20 +27,6 @@ public class DashCollectibles : MonoBehaviour
             collectibleCounter.im.enabled = false;
             collectibleCounter.im.Rebind();
         }
-        if (tookCol3 == true)
-        {
-            tookCol3 = false;
-            collectible3.SetActive(true);
-            collectibleCounter.im.enabled = false;
-            collectibleCounter.im.Rebind();
-        }
-        if (tookCol4 == true)
-        {
-            tookCol4 = false;
-            collectible4.SetActive(true);
-            collectibleCounter.im.enabled = false;
-            collectibleCounter.im.Rebind();
-        }
     }
 
     //Resets the Bools after the player has successfully aquired an upgrade
@@ -61,20 +47,6 @@ public class DashCollectibles : MonoBehaviour
             collectibleCounter.im.enabled = false;
             collectibleCounter.im.Rebind();
         } 
-        if (tookCol3 == true)
-        {
-            collectibleCounter.AddCollectible();
-            tookCol3 = false;
-            collectibleCounter.im.enabled = false;
-            collectibleCounter.im.Rebind();
-        }
-        if (tookCol4 == true)
-        {
-            collectibleCounter.AddCollectible();
-            tookCol4 = false;
-            collectibleCounter.im.enabled = false;
-            collectibleCounter.im.Rebind();
-        }
     }
 
     public void TookCol1()
@@ -84,13 +56,5 @@ public class DashCollectibles : MonoBehaviour
     public void TookCol2()
     {
         tookCol2 = true;
-    }
-    public void TookCol3()
-    {
-        tookCol3 = true;
-    }
-    public void TookCol4()
-    {
-        tookCol4 = true;
     }
 }
