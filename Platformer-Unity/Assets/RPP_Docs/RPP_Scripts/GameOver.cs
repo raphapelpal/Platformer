@@ -5,12 +5,27 @@ using UnityEngine.SceneManagement;
 
 public class GameOver : MonoBehaviour
 {
+    static public bool level1Finished = false;
+
     public void ReplayGame()
     {
-        SceneManager.LoadScene("Phase_1");
+        if (level1Finished == false)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+        }
+        
     }
     public void MainMenu()
     {
         SceneManager.LoadScene("StartMenu");
+    }
+
+    public void Level1Passed()
+    {
+        level1Finished = true;
     }
 }

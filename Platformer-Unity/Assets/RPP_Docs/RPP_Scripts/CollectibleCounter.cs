@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class CollectibleCounter : MonoBehaviour
 {
-    public static int collectiblesCollected = 0;
+    static int collectiblesCollected = 0;
     public Text counter;
 
     [SerializeField] DashBar dashBar;

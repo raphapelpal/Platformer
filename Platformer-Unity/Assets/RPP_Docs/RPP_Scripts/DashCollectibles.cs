@@ -8,7 +8,7 @@ public class DashCollectibles : MonoBehaviour
     [SerializeField]
     CollectibleCounter collectibleCounter;
 
-    bool tookCol1, tookCol2, tookCol3, tookCol4 = false;
+    bool tookCol1, tookCol2 = false;
 
     //Determines which collectible reappears if the player dies
     public void PlayerHasDied()

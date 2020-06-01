@@ -8,8 +8,8 @@ public class DashBar : MonoBehaviour
     [SerializeField]
     private Transform player;
 
-    int maxDash = 0;
-    public int dashLeft;
+    static int maxDash = 0;
+    [HideInInspector] public int dashLeft;
 
     public DashMove dashMove;
     public bool canCountDash;
@@ -25,16 +25,7 @@ public class DashBar : MonoBehaviour
    
     private void Start()
     {
-        dash1.enabled = false;
-        dash2.enabled = false;
-        dash3.enabled = false;
-        dash4.enabled = false;
-        dash5.enabled = false;
-        dashFill1.enabled = false;
-        dashFill2.enabled = false;
-        dashFill3.enabled = false;
-        dashFill4.enabled = false;
-        dashFill5.enabled = false;
+        TotalDashes();
     }
 
     private void Update()
@@ -78,29 +69,82 @@ public class DashBar : MonoBehaviour
     //Defines how many dashes the player is allowed
     public void TotalDashes()
     {
-        if (maxDash <= 1)
+        if (maxDash == 0)
+        {
+            dash1.enabled = false;
+            dash2.enabled = false;
+            dash3.enabled = false;
+            dash4.enabled = false;
+            dash5.enabled = false;
+            dashFill1.enabled = false;
+            dashFill2.enabled = false;
+            dashFill3.enabled = false;
+            dashFill4.enabled = false;
+            dashFill5.enabled = false;
+        }
+        else if (maxDash == 1)
         {
             dash1.enabled = true;
+            dash2.enabled = false;
+            dash3.enabled = false;
+            dash4.enabled = false;
+            dash5.enabled = false;
             dashFill1.enabled = true;
+            dashFill2.enabled = false;
+            dashFill3.enabled = false;
+            dashFill4.enabled = false;
+            dashFill5.enabled = false;
         }
-        else if (maxDash <= 2)
+        else if (maxDash == 2)
         {
+            dash1.enabled = true;
             dash2.enabled = true;
+            dash3.enabled = false;
+            dash4.enabled = false;
+            dash5.enabled = false;
+            dashFill1.enabled = true;
             dashFill2.enabled = true;
+            dashFill3.enabled = false;
+            dashFill4.enabled = false;
+            dashFill5.enabled = false;
         }
-        else if (maxDash <= 3)
+        else if (maxDash == 3)
         {
+            dash1.enabled = true;
+            dash2.enabled = true;
             dash3.enabled = true;
+            dash4.enabled = false;
+            dash5.enabled = false;
+            dashFill1.enabled = true;
+            dashFill2.enabled = true;
             dashFill3.enabled = true;
+            dashFill4.enabled = false;
+            dashFill5.enabled = false;
         }
-        else if (maxDash <= 4)
+        else if (maxDash == 4)
         {
+            dash1.enabled = true;
+            dash2.enabled = true;
+            dash3.enabled = true;
             dash4.enabled = true;
+            dash5.enabled = false;
+            dashFill1.enabled = true;
+            dashFill2.enabled = true;
+            dashFill3.enabled = true;
             dashFill4.enabled = true;
+            dashFill5.enabled = false;
         }
-        else if (maxDash <= 5)
+        else if (maxDash == 5)
         {
+            dash1.enabled = true;
+            dash2.enabled = true;
+            dash3.enabled = true;
+            dash4.enabled = true;
             dash5.enabled = true;
+            dashFill1.enabled = true;
+            dashFill2.enabled = true;
+            dashFill3.enabled = true;
+            dashFill4.enabled = true;
             dashFill5.enabled = true;
         }
     }

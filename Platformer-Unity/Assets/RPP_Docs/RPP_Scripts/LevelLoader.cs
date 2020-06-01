@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
+    public GameOver gameOver;
     public Animator transition;
     public BoxCollider2D triggerTransition;
 
@@ -12,10 +13,11 @@ public class LevelLoader : MonoBehaviour
     void Update()
     {
         OnTriggerEnter2D(triggerTransition);
-        if (Input.GetKeyDown(KeyCode.P))
+
+        /*if (Input.GetKeyDown(KeyCode.P))
         {
             StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
-        }
+        }*/
 
     }
 
@@ -24,6 +26,7 @@ public class LevelLoader : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Debug.Log("LevelCompleted");
+            gameOver.Level1Passed();
             StartCoroutine(LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));
         }
     }
