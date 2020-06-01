@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/_Scenes_Principales/Phase_1.unity
     guid: 14acae953acbd9943a970b556a311006
   - enabled: 1
+    path: Assets/_Scenes_Principales/PhaseFinale.unity
+    guid: a8802571ab2b5524bb53462a58832202
+  - enabled: 1
     path: Assets/_Scenes_Principales/GameOver.unity
     guid: c8ece519c01b0e8418621815e751e13e
   m_configObjects: {}

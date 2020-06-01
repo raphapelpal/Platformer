@@ -19,6 +19,9 @@ public class DashBar : MonoBehaviour
     //The Images that count how many dashes the player has
     [SerializeField]
     SpriteRenderer dash1, dash2, dash3, dash4, dash5;
+
+    [SerializeField]
+    SpriteRenderer dashFill1, dashFill2, dashFill3, dashFill4, dashFill5;
    
     private void Start()
     {
@@ -27,6 +30,11 @@ public class DashBar : MonoBehaviour
         dash3.enabled = false;
         dash4.enabled = false;
         dash5.enabled = false;
+        dashFill1.enabled = false;
+        dashFill2.enabled = false;
+        dashFill3.enabled = false;
+        dashFill4.enabled = false;
+        dashFill5.enabled = false;
     }
 
     private void Update()
@@ -38,14 +46,6 @@ public class DashBar : MonoBehaviour
        }
         //Follow the player
         transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
-
-
-        /*if (Input.GetKeyDown(KeyCode.R))
-        {
-             DashRefil();
-             Debug.Log("Refil");
-        }*/
-
     }
 
     //Increases the quantity of dashes allowed to the player
@@ -81,22 +81,27 @@ public class DashBar : MonoBehaviour
         if (maxDash <= 1)
         {
             dash1.enabled = true;
+            dashFill1.enabled = true;
         }
         else if (maxDash <= 2)
         {
             dash2.enabled = true;
+            dashFill2.enabled = true;
         }
         else if (maxDash <= 3)
         {
             dash3.enabled = true;
+            dashFill3.enabled = true;
         }
         else if (maxDash <= 4)
         {
             dash4.enabled = true;
+            dashFill4.enabled = true;
         }
         else if (maxDash <= 5)
         {
             dash5.enabled = true;
+            dashFill5.enabled = true;
         }
     }
 
@@ -105,51 +110,52 @@ public class DashBar : MonoBehaviour
     {
         if (dashLeft == 0)
         {
-            dash1.color = Color.red;
-            dash2.color = Color.red;
-            dash3.color = Color.red;
-            dash4.color = Color.red;
-            dash5.color = Color.red;
+            dashFill1.color = new Color(0, 0, 0, 0);
+            dashFill2.color = new Color(0, 0, 0, 0);
+            dashFill3.color = new Color(0, 0, 0, 0);
+            dashFill4.color = new Color(0, 0, 0, 0);
+            dashFill5.color = new Color(0, 0, 0, 0);
         }
         else if (dashLeft == 1)
         {
-            dash1.color = Color.white;
-            dash2.color = Color.red;
-            dash3.color = Color.red;
-            dash4.color = Color.red;
-            dash5.color = Color.red;
+            dashFill1.color = new Color(255, 255, 255, 255);
+            dashFill2.color = new Color(0, 0, 0, 0);
+            dashFill3.color = new Color(0, 0, 0, 0);
+            dashFill4.color = new Color(0, 0, 0, 0);
+            dashFill5.color = new Color(0, 0, 0, 0);
+
         }
         else if (dashLeft == 2)
         {
-            dash1.color = Color.white;
-            dash2.color = Color.white;
-            dash3.color = Color.red;
-            dash4.color = Color.red;
-            dash5.color = Color.red;
+            dashFill1.color = new Color(255, 255, 255, 255);
+            dashFill2.color = new Color(255, 255, 255, 255);
+            dashFill3.color = new Color(0, 0, 0, 0);
+            dashFill4.color = new Color(0, 0, 0, 0);
+            dashFill5.color = new Color(0, 0, 0, 0);
         }
         else if (dashLeft == 3)
         {
-            dash1.color = Color.white;
-            dash2.color = Color.white;
-            dash3.color = Color.white;
-            dash4.color = Color.red;
-            dash5.color = Color.red;
+            dashFill1.color = new Color(255, 255, 255, 255);
+            dashFill2.color = new Color(255, 255, 255, 255);
+            dashFill3.color = new Color(255, 255, 255, 255);
+            dashFill4.color = new Color(0, 0, 0, 0);
+            dashFill5.color = new Color(0, 0, 0, 0);
         }
         else if (dashLeft == 4)
         {
-            dash1.color = Color.white;
-            dash2.color = Color.white;
-            dash3.color = Color.white;
-            dash4.color = Color.white;
-            dash5.color = Color.red;
+            dashFill1.color = new Color(255, 255, 255, 255);
+            dashFill2.color = new Color(255, 255, 255, 255);
+            dashFill3.color = new Color(255, 255, 255, 255);
+            dashFill4.color = new Color(255, 255, 255, 255);
+            dashFill5.color = new Color(0, 0, 0, 0);
         }
         else if (dashLeft == 5)
         {
-            dash1.color = Color.white;
-            dash2.color = Color.white;
-            dash3.color = Color.white;
-            dash4.color = Color.white;
-            dash5.color = Color.white;
+            dashFill1.color = new Color(255, 255, 255, 255);
+            dashFill2.color = new Color(255, 255, 255, 255);
+            dashFill3.color = new Color(255, 255, 255, 255);
+            dashFill4.color = new Color(255, 255, 255, 255);
+            dashFill5.color = new Color(255, 255, 255, 255);
         }
     }
 
