@@ -10,6 +10,7 @@ public class EnemyDamage : MonoBehaviour
     public SpriteRenderer enemySprite;
     //public MeshRenderer enemyRenderer;
     public CircleCollider2D enemyCircleCollider2D;
+    public GameObject enemyParticle;
     public DashBar dashBar;
     private bool canRefilDash;
     private void Start()
@@ -19,21 +20,28 @@ public class EnemyDamage : MonoBehaviour
     }
     private void Update()
     {
+        OnTriggerEnter2D(enemyCircleCollider2D);
+
         if (curHealth <= 0 && canRefilDash == true)
         {
             EnemyIsDead();
             canRefilDash = false;
         }
     }
-    public void Damage(int Damage)
+
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        curHealth -= damage;
+        if (other.CompareTag("Spear"))
+        {
+            curHealth = 0;
+        }
     }
 
     private void EnemyIsDead()
     {
         enemySprite.enabled = false;
         enemyCircleCollider2D.enabled = false;
+        enemyParticle.SetActive(false);
         dashBar.DashRefil();
     }
 
@@ -42,6 +50,7 @@ public class EnemyDamage : MonoBehaviour
         curHealth = maxHealth;
         enemySprite.enabled = true;
         enemyCircleCollider2D.enabled = true;
+        enemyParticle.SetActive(true);
         canRefilDash = true;
     }
 }

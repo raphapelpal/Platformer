@@ -18,6 +18,7 @@ public class RespawnAzaès : MonoBehaviour
     public void BackToCheckpoint()
     {
         StartCoroutine(BeforeRespawn(lastCheckpoint));
+        Debug.Log("BeforeRespawn has been called");
     }
 
 

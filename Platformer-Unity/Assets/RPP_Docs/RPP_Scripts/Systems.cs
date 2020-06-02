@@ -21,19 +21,19 @@ public class Systems : MonoBehaviour
     //Dash Systems
     public DashCollectibles dashCollectibles;
     public DashBar dashBar;
-    bool hasPickedUpgrade = false;
-
-    //Score Systems
-    public Score score;
 
     //Collectible Counter Systems
     public CollectibleCounter collectibleCounter;
 
+    //Score
+    public Score score;
+
     //Pause Menu
     public GameObject mainUI;
     public GameObject pauseMenu;
-    
 
+    //Manager of the enemies
+    public EnemiesManager enemiesManager;
 
     void Start()
     {
@@ -58,6 +58,7 @@ public class Systems : MonoBehaviour
             dashCollectibles.PlayerHasDied();
             respawnAzaès.BackToCheckpoint();
             transform.position = new Vector3(player.position.x, player.position.y, transform.position.z);
+            enemiesManager.RespawnEnemies();
         }
 
         //Pause Button
@@ -65,9 +66,9 @@ public class Systems : MonoBehaviour
         {
             mainUI.SetActive(false);
             pauseMenu.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
-
 
     // Consequences of collisions
     void OnTriggerEnter2D(Collider2D boxCollider2D)
@@ -82,37 +83,14 @@ public class Systems : MonoBehaviour
             TakeDamage(2);
             Debug.Log("Hit Trap");
         }
-        if (boxCollider2D.CompareTag("Floor"))
-        {
-            Debug.Log("Is Touching Floor");
-        }
         if (boxCollider2D.CompareTag("Checkpoint"))
         {
             reSpawn.ChangeRespawnPosition();
             FullHealth();
-            Debug.Log("Healed");
-
-            if (hasPickedUpgrade == true)
-            {
-                collectibleCounter.AddCollectible();
-                dashCollectibles.ReachedCheckpoint();
-            }
-        }
-        if (boxCollider2D.CompareTag("DashUpgrade"))
-        {
-            dashBar.AddMaxDash();
-        }
-        if (boxCollider2D.CompareTag("Pièce"))
-        {
-            score.AddCoin();
-        }
-        if (boxCollider2D.CompareTag("PartialUpgrade"))
-        {
-            hasPickedUpgrade = true;
-            dashCollectibles.HasBeenPicked();
+            dashBar.DashRefil();
+            dashCollectibles.ReachedCheckpoint();
         }
     }
-
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
@@ -124,4 +102,3 @@ public class Systems : MonoBehaviour
         healthBar.SetHealth(currentHealth);
     }
 }
-

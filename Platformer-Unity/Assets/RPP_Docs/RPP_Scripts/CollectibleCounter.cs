@@ -3,11 +3,20 @@ using UnityEngine.UI;
 
 public class CollectibleCounter : MonoBehaviour
 {
-    public static int collectiblesCollected = 0;
+    static int collectiblesCollected = 0;
     public Text counter;
 
-    [SerializeField]
-    DashBar dashBar;
+    [SerializeField] DashBar dashBar;
+
+     public Animator im;
+
+    public ParticleSystem collectibleFeedback;
+
+
+    private void Start()
+    {
+        im.enabled = false;
+    }
 
     private void FixedUpdate()
     {
@@ -23,5 +32,7 @@ public class CollectibleCounter : MonoBehaviour
     public void AddCollectible()
     {
         collectiblesCollected++;
+        collectibleFeedback.Play();
+
     }
 }

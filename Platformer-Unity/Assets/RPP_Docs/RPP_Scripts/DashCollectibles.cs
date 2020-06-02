@@ -3,40 +3,58 @@
 public class DashCollectibles : MonoBehaviour
 {
     [SerializeField]
-    SpriteRenderer sprite;
+    GameObject collectible1, collectible2;
 
     [SerializeField]
-    BoxCollider2D boxCollider;
+    CollectibleCounter collectibleCounter;
 
-    [SerializeField]
-    GameObject collectible;
+    bool tookCol1, tookCol2 = false;
 
-    bool hasBeenPicked = false;
-
-    public void HasBeenPicked()
-    {
-        hasBeenPicked = true;
-        sprite.enabled = false;
-        boxCollider.enabled = false;
-    }
-
+    //Determines which collectible reappears if the player dies
     public void PlayerHasDied()
     {
-        if (hasBeenPicked == true)
+        if (tookCol1 == true)
         {
-            hasBeenPicked = false;
-            sprite.enabled = true;
-            boxCollider.enabled = true;
+            tookCol1 = false;
+            collectible1.SetActive(true);
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
         }
-        
+        if (tookCol2 == true)
+        {
+            tookCol2 = false;
+            collectible2.SetActive(true);
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
+        }
     }
 
+    //Resets the Bools after the player has successfully aquired an upgrade
     public void ReachedCheckpoint()
     {
-        if (hasBeenPicked == true)
+        Debug.Log("Collectible Check");
+        if (tookCol1 == true)
         {
-            collectible.SetActive(false);
-        }
+            collectibleCounter.AddCollectible();
+            tookCol1 = false;
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
+        } 
+        if (tookCol2 == true)
+        {
+            collectibleCounter.AddCollectible();
+            tookCol2 = false;
+            collectibleCounter.im.enabled = false;
+            collectibleCounter.im.Rebind();
+        } 
     }
 
+    public void TookCol1()
+    {
+        tookCol1 = true;
+    }
+    public void TookCol2()
+    {
+        tookCol2 = true;
+    }
 }

@@ -11,6 +11,7 @@ TagManager:
   - DashUpgrade
   - Collectible
   - CheckpointBonus
+  - Spear
   layers:
   - Default
   - TransparentFX

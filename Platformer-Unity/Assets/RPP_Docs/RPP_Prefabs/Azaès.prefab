@@ -10,10 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5280653505760732239}
   - component: {fileID: 5280653505760732233}
-  - component: {fileID: 5280653505760732232}
   m_Layer: 0
   m_Name: AttackTrigger
-  m_TagString: Untagged
+  m_TagString: Spear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,19 +57,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4006089, y: 0.61964154}
   m_EdgeRadius: 0
---- !u!114 &5280653505760732232
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280653505760732238}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb1526c99d4ce4418c164f97dfb21dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 20
 --- !u!1 &5280653506282166143
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,10 +305,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5280653506384030046}
   - component: {fileID: 5280653506384030040}
-  - component: {fileID: 5280653506384030047}
   m_Layer: 0
   m_Name: JumpAttackTrigger
-  m_TagString: Untagged
+  m_TagString: Spear
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -367,16 +352,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.9475348, y: 0.42231095}
   m_EdgeRadius: 0
---- !u!114 &5280653506384030047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5280653506384030045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5eb1526c99d4ce4418c164f97dfb21dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dmg: 20
