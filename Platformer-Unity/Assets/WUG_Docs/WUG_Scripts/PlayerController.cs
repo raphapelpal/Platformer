@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class PlayerController : PhysicsObject
 {
-    public float maxSpeed = 14f;
-    public float jumpTakeOffSpeed = 18f;
+    public bool moveInAir;
+    public float fireRate;
+    public float maxSpeed = 12;
+    public float jumpTakeOffSpeed = 18;
+    public Collider2D[] attackHitBoxes;
 
+    private float nextFire;
     private bool facingRight;
     private SpriteRenderer spriteRenderer;
     protected Animator animator;
@@ -42,21 +46,11 @@ public class PlayerController : PhysicsObject
         if (Input.GetButtonDown("Jump") && grounded)
         {
             velocity.y = jumpTakeOffSpeed;
-            animator.SetTrigger("Jump");
         }
         else if (Input.GetButtonUp("Jump"))
         {
             if (velocity.y > 0)
                 velocity.y = velocity.y * 0.5f;
-        }
-
-        // Attack en saut
-        if (Input.GetKeyDown("f") && !grounded)
-        {
-            velocity.y = -jumpTakeOffSpeed;
-            maxSpeed = 50f;
-            move.x = 0f;
-            animator.SetTrigger("JumpAttack");
         }
 
         // Le sprint
@@ -71,14 +65,23 @@ public class PlayerController : PhysicsObject
             animator.SetBool("Sprint", false);
         }
 
-        targetVelocity = move * maxSpeed;
-       // Debug.Log(targetVelocity);
-
-        // Test Death
-        /*if (Input.GetKeyDown(KeyCode.K))
+        // Attack en saut
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow) && !grounded)
         {
-            animator.SetTrigger("Dead");
-        }*/
+            velocity.y = -jumpTakeOffSpeed;
+            maxSpeed = 50f;
+            move.x = 1f;
+            animator.SetTrigger("JumpAttack");
+        }
+
+        targetVelocity = move * maxSpeed;
+        Debug.Log(targetVelocity);
+
+        if (Input.GetKeyDown(KeyCode.G) && Time.time > nextFire)
+        {
+            LaunchAttack(attackHitBoxes[0]);
+            nextFire = Time.time + fireRate;
+        }
 
         // Les animations
         animator.SetBool("grounded", grounded);
@@ -86,6 +89,29 @@ public class PlayerController : PhysicsObject
         animator.SetFloat("velocityY", Mathf.Abs(velocity.y));
 
         targetVelocity = move * maxSpeed;
+    }
+
+    void LaunchAttack(Collider2D col)
+    {
+        Collider2D collider = Physics2D.OverlapBox(col.bounds.center, col.bounds.extents, col.transform.rotation.y, LayerMask.GetMask("HitBox"));
+        if (collider != null)
+        {
+            if (collider.transform.root != transform)
+            {
+                float damage = 0f;
+                switch (col.name)
+                {
+                    case "BasicAttack":
+                        damage = 10f;
+                        break;
+                    default:
+                        Debug.Log("Unable to identify attack");
+                        break;
+                }
+                Debug.Log(collider.transform.root.name + " takes " + damage + " Damage.");
+                collider.SendMessageUpwards("TakeDamage", damage);
+            }
+        }
     }
 
     private void ResetMaxSpeed()

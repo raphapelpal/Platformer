@@ -4,17 +4,12 @@ using UnityEngine;
 
 public class DashMove : PlayerController
 {
-    public float dashSpeed = 150f;
-    public float upDashSpeed = 100f;
-    public float diagonalDashSpeed = 200f;
-    public float startDashTime = 0.1f;
+    public float dashSpeed;
+    public float startDashTime;
 
     private Rigidbody2D rb;
     private float dashTime;
     private int direction;
-
-    public DashBar dashBar;
-    private bool canDash = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,31 +27,26 @@ public class DashMove : PlayerController
             {
                 direction = 1;
                 animator.SetTrigger("Dash");
-                canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.RightArrow) && !grounded)
             {
                 direction = 2;
                 animator.SetTrigger("Dash");
-                canDash = true;
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow) && !grounded)
+            else if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Z) && !grounded)
             {
                 direction = 3;
-                animator.SetTrigger("Dash Up");
-                canDash = true;
+                animator.SetTrigger("Dash Diagonale");
             }
             else if (Input.GetKeyDown(KeyCode.E) && !grounded)
             {
                 direction = 4;
                 animator.SetTrigger("Dash Diagonale");
-                canDash = true;
             }
             else if (Input.GetKeyDown(KeyCode.A) && !grounded)
             {
                 direction = 5;
                 animator.SetTrigger("Dash Diagonale");
-                canDash = true;
             }
         }
         else
@@ -71,31 +61,25 @@ public class DashMove : PlayerController
             {
                 dashTime -= Time.deltaTime;
             }
-
-            if (dashBar.dashLeft > 0 && canDash == true)
+            if (direction == 1)
             {
-                canDash = false;
-                if (direction == 1)
-                {
-                    rb.velocity = Vector2.left * dashSpeed;
-                }
-                else if (direction == 2)
-                {
-                    rb.velocity = Vector2.right * dashSpeed;
-                }
-                else if (direction == 3)
-                {
-                    rb.velocity = Vector2.up * upDashSpeed;
-                }
-                else if (direction == 4)
-                {
-                    rb.velocity = new Vector2(0.5f, 0.5f) * diagonalDashSpeed;
-                }
-                else if (direction == 5)
-                {
-                    rb.velocity = new Vector2(-0.5f, 0.5f) * diagonalDashSpeed;
-                }
-                dashBar.UsedDash();
+                rb.velocity = Vector2.left * dashSpeed;
+            }
+            else if (direction == 2)
+            {
+                rb.velocity = Vector2.right * dashSpeed;
+            }
+            else if (direction == 3)
+            {
+                rb.velocity = Vector2.up * dashSpeed;
+            }
+            else if (direction == 4)
+            {
+                rb.velocity = new Vector2(0.5f, 0.5f) * dashSpeed;
+            }
+            else if (direction == 5)
+            {
+                rb.velocity = new Vector2(-0.5f, 0.5f) * dashSpeed;
             }
         }
     }

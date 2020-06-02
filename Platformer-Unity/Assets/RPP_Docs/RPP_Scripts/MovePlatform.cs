@@ -8,27 +8,26 @@ public class MovePlatform : MonoBehaviour
     private Vector3 posB;
     private Vector3 nextPos;
 
-    [SerializeField] float speed;
+    [SerializeField]
+    private float speed;
 
-    //[SerializeField] GameObject platformObject;
+    [SerializeField]
+    private Transform platformLocation;
 
-    [SerializeField] Transform platformLocation;
-
-    [SerializeField] Transform destination;
-
-    [SerializeField] Rigidbody2D azaèsRigidbody;
-    [SerializeField] Transform azaèsTransform;
-
-    //[SerializeField] CompositeCollider2D platformCollider;
+    [SerializeField]
+    private Transform transformB;
     
+
+
+    // Start is called before the first frame update
     void Start()
     {
         posA = platformLocation.localPosition;
-        posB = destination.localPosition;
+        posB = transformB.localPosition;
         nextPos = posB;
-        
     }
 
+    // Update is called once per frame
     void Update()
     {
         Move();
@@ -46,18 +45,8 @@ public class MovePlatform : MonoBehaviour
 
     private void ChangeDestination()
     {
-        // if the nextPos is different from posA, change it to equal posA. If it is equal, change it to equal posB
+        // if the nextPos id different from posA, change it to equal posA. If it is equal, change it to equal posB
         nextPos = nextPos != posA ? posA: posB;
     }
-
-    /*void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            azaèsRigidbody.bodyType = RigidbodyType2D.Kinematic;
-            Debug.Log("Has transformed the Rigidbody");
-            //azaèsTransform.localPosition = Vector2.MoveTowards(azaèsTransform.localPosition, platformLocation.localPosition, Time.deltaTime);
-        }
-    }*/
 
 }

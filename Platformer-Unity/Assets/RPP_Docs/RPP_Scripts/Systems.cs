@@ -30,8 +30,8 @@ public class Systems : MonoBehaviour
     public CollectibleCounter collectibleCounter;
 
     //Pause Menu
-    public Canvas mainUI;
-    public Canvas pauseMenu;
+    public GameObject mainUI;
+    public GameObject pauseMenu;
     
 
 
@@ -42,8 +42,8 @@ public class Systems : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
 
         //Setup UI
-        mainUI.enabled = true;
-        pauseMenu.enabled = false;
+        mainUI.SetActive(true);
+        pauseMenu.SetActive(false);
     }
 
     private void FixedUpdate()
@@ -63,8 +63,8 @@ public class Systems : MonoBehaviour
         //Pause Button
         if (Input.GetKey(KeyCode.Escape))
         {
-            mainUI.enabled = false;
-            pauseMenu.enabled = true;
+            mainUI.SetActive(false);
+            pauseMenu.SetActive(true);
         }
     }
 
