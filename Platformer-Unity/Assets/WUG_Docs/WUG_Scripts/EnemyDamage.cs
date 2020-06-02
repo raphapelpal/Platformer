@@ -7,9 +7,9 @@ public class EnemyDamage : MonoBehaviour
     public float maxHealth = 20;
     public float curHealth = 20;
     public float damage = 20;
-    //public SpriteRenderer enemySprite;
-    public MeshRenderer enemyRenderer;
-    public BoxCollider2D enemyBoxCollider2D;
+    public SpriteRenderer enemySprite;
+    //public MeshRenderer enemyRenderer;
+    public CircleCollider2D enemyCircleCollider2D;
     public DashBar dashBar;
     private bool canRefilDash;
     private void Start()
@@ -32,16 +32,16 @@ public class EnemyDamage : MonoBehaviour
 
     private void EnemyIsDead()
     {
-        enemyRenderer.enabled = false;
-        enemyBoxCollider2D.enabled = false;
+        enemySprite.enabled = false;
+        enemyCircleCollider2D.enabled = false;
         dashBar.DashRefil();
     }
 
     public void EnemyRespawn()
     {
         curHealth = maxHealth;
-        enemyRenderer.enabled = true;
-        enemyBoxCollider2D.enabled = true;
+        enemySprite.enabled = true;
+        enemyCircleCollider2D.enabled = true;
         canRefilDash = true;
     }
 }

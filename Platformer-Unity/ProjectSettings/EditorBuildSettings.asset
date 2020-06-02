@@ -12,10 +12,10 @@ EditorBuildSettings:
     path: 
     guid: f2a1ceafeb1624040be9d397c146065b
   - enabled: 1
-    path: Assets/_Scenes_Principales/Phase_1.unity
+    path: Assets/_Scenes_Principales/Phase_1PROTO.unity
     guid: 14acae953acbd9943a970b556a311006
   - enabled: 1
-    path: Assets/_Scenes_Principales/PhaseFinale.unity
+    path: Assets/_Scenes_Principales/PhaseFinalePROTO.unity
     guid: a8802571ab2b5524bb53462a58832202
   - enabled: 1
     path: Assets/_Scenes_Principales/GameOver.unity

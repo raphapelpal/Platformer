@@ -9,7 +9,6 @@ TagManager:
   - Floor
   - Checkpoint
   - DashUpgrade
-  - "Pi\xE8ce"
   - Collectible
   - CheckpointBonus
   layers:
